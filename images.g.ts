@@ -21,24 +21,6 @@ c c c c c d d d e e f c . f e f
 . . . f d d c d d b b d f . . . 
 . . . . f f f f f f f f f . . . 
 `;
-            case "image2":return img`
-4 4 4 . . 4 4 4 4 4 . . . . . . 
-4 5 5 4 4 5 5 5 5 5 4 4 . . . . 
-b 4 5 5 1 5 1 1 1 5 5 5 4 . . . 
-. b 5 5 5 5 1 1 5 5 1 1 5 4 . . 
-. b d 5 5 5 5 5 5 5 5 1 1 5 4 . 
-b 4 5 5 5 5 5 5 5 5 5 5 1 5 4 . 
-c d 5 5 5 5 5 5 5 5 5 5 5 5 5 4 
-c d 4 5 5 5 5 5 5 5 5 5 5 1 5 4 
-c 4 5 5 5 d 5 5 5 5 5 5 5 5 5 4 
-c 4 d 5 4 5 d 5 5 5 5 5 5 5 5 4 
-. c 4 5 5 5 5 d d d 5 5 5 5 5 b 
-. c 4 d 5 4 5 d 4 4 d 5 5 5 4 c 
-. . c 4 4 d 4 4 4 4 4 d d 5 d c 
-. . . c 4 4 4 4 4 4 4 4 5 5 5 4 
-. . . . c c b 4 4 4 b b 4 5 4 4 
-. . . . . . c c c c c c b b 4 . 
-`;
             case "image3":return img`
 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -160,6 +142,42 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+`;
+            case "image4":return img`
+4 4 4 . . 4 4 4 4 4 . . . . . . 
+4 5 5 4 4 5 5 5 5 5 4 4 . . . . 
+b 4 5 5 1 5 1 1 1 5 5 5 4 . . . 
+. b 5 5 5 5 1 1 5 5 1 1 5 4 . . 
+. b d 5 5 5 5 5 5 5 5 1 1 5 4 . 
+b 4 5 5 5 5 5 5 5 5 5 5 1 5 4 . 
+c d 5 5 5 5 5 5 5 5 5 5 5 5 5 4 
+c d 4 5 5 5 5 5 5 5 5 5 5 1 5 4 
+c 4 5 5 5 d 5 5 5 5 5 5 5 5 5 4 
+c 4 d 5 4 5 d 5 5 5 5 5 5 5 5 4 
+. c 4 5 5 5 5 d d d 5 5 5 5 5 b 
+. c 4 d 5 4 5 d 4 4 d 5 5 5 4 c 
+. . c 4 4 d 4 4 4 4 4 d d 5 d c 
+. . . c 4 4 4 4 4 4 4 4 5 5 5 4 
+. . . . c c b 4 4 4 b b 4 5 4 4 
+. . . . . . c c c c c c b b 4 . 
+`;
+            case "image2":return img`
+. . f f f . . . . . . . . f f f 
+. f f c c . . . . . . f c b b c 
+f f c c . . . . . . f c b b c . 
+f c f c . . . . . . f b c c c . 
+f f f c c . c c . f c b b c c . 
+f f c 3 c c 3 c c f b c b b c . 
+f f b 3 b c 3 b c f b c c b c . 
+. c b b b b b b c b b c c c . . 
+. c 1 b b b 1 b b c c c c . . . 
+c b b b b b b b b b c c . . . . 
+c b c b b b c b b b b f . . . . 
+f b 1 f f f 1 b b b b f c . . . 
+f b b b b b b b b b b f c c . . 
+. f b b b b b b b b c f . . . . 
+. . f b b b b b b c f . . . . . 
+. . . f f f f f f f . . . . . . 
 `;
         }
         return null;

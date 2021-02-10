@@ -104,10 +104,30 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . f d d f f e e d d b f f f f . 
         . f f f f f f f f f f f f f . . 
         `],
-    200,
-    true
+    100,
+    false
     )
+    projectile = sprites.createProjectileFromSprite(img`
+        4 4 4 . . 4 4 4 4 4 . . . . . . 
+        4 5 5 4 4 5 5 5 5 5 4 4 . . . . 
+        b 4 5 5 1 5 1 1 1 5 5 5 4 . . . 
+        . b 5 5 5 5 1 1 5 5 1 1 5 4 . . 
+        . b d 5 5 5 5 5 5 5 5 1 1 5 4 . 
+        b 4 5 5 5 5 5 5 5 5 5 5 1 5 4 . 
+        c d 5 5 5 5 5 5 5 5 5 5 5 5 5 4 
+        c d 4 5 5 5 5 5 5 5 5 5 5 1 5 4 
+        c 4 5 5 5 d 5 5 5 5 5 5 5 5 5 4 
+        c 4 d 5 4 5 d 5 5 5 5 5 5 5 5 4 
+        . c 4 5 5 5 5 d d d 5 5 5 5 5 b 
+        . c 4 d 5 4 5 d 4 4 d 5 5 5 4 c 
+        . . c 4 4 d 4 4 4 4 4 d d 5 d c 
+        . . . c 4 4 4 4 4 4 4 4 5 5 5 4 
+        . . . . c c b 4 4 4 b b 4 5 4 4 
+        . . . . . . c c c c c c b b 4 . 
+        `, shimmia, -23, -24)
 })
+let pistrello: Sprite = null
+let projectile: Sprite = null
 let shimmia: Sprite = null
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -231,24 +251,6 @@ scene.setBackgroundImage(img`
     dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
     dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
     `)
-let arancia = sprites.create(img`
-    4 4 4 . . 4 4 4 4 4 . . . . . . 
-    4 5 5 4 4 5 5 5 5 5 4 4 . . . . 
-    b 4 5 5 1 5 1 1 1 5 5 5 4 . . . 
-    . b 5 5 5 5 1 1 5 5 1 1 5 4 . . 
-    . b d 5 5 5 5 5 5 5 5 1 1 5 4 . 
-    b 4 5 5 5 5 5 5 5 5 5 5 1 5 4 . 
-    c d 5 5 5 5 5 5 5 5 5 5 5 5 5 4 
-    c d 4 5 5 5 5 5 5 5 5 5 5 1 5 4 
-    c 4 5 5 5 d 5 5 5 5 5 5 5 5 5 4 
-    c 4 d 5 4 5 d 5 5 5 5 5 5 5 5 4 
-    . c 4 5 5 5 5 d d d 5 5 5 5 5 b 
-    . c 4 d 5 4 5 d 4 4 d 5 5 5 4 c 
-    . . c 4 4 d 4 4 4 4 4 d d 5 d c 
-    . . . c 4 4 4 4 4 4 4 4 5 5 5 4 
-    . . . . c c b 4 4 4 b b 4 5 4 4 
-    . . . . . . c c c c c c b b 4 . 
-    `, SpriteKind.Projectile)
 shimmia = sprites.create(img`
     . . . . f f f f f . . . . . . . 
     . . . f e e e e e f . . . . . . 
@@ -268,5 +270,27 @@ shimmia = sprites.create(img`
     . . . . f f f f f f f f f . . . 
     `, SpriteKind.Player)
 controller.moveSprite(shimmia, 100, 0)
-shimmia.setPosition(0, 112)
+shimmia.setPosition(80, 112)
 shimmia.setStayInScreen(true)
+game.onUpdateInterval(1000, function () {
+    pistrello = sprites.create(img`
+        . . f f f . . . . . . . . f f f 
+        . f f c c . . . . . . f c b b c 
+        f f c c . . . . . . f c b b c . 
+        f c f c . . . . . . f b c c c . 
+        f f f c c . c c . f c b b c c . 
+        f f c 3 c c 3 c c f b c b b c . 
+        f f b 3 b c 3 b c f b c c b c . 
+        . c b b b b b b c b b c c c . . 
+        . c 1 b b b 1 b b c c c c . . . 
+        c b b b b b b b b b c c . . . . 
+        c b c b b b c b b b b f . . . . 
+        f b 1 f f f 1 b b b b f c . . . 
+        f b b b b b b b b b b f c c . . 
+        . f b b b b b b b b c f . . . . 
+        . . f b b b b b b c f . . . . . 
+        . . . f f f f f f f . . . . . . 
+        `, SpriteKind.Enemy)
+    pistrello.setPosition(0, 0)
+    pistrello.setVelocity(50, 50)
+})
